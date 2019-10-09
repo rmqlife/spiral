@@ -21,8 +21,7 @@
 #include "libmypaint/mypaint-brush.h"
 #include "spiral/environments/libmypaint_wrapper/surface.h"
 
-namespace spiral {
-namespace libmypaint {
+namespace libmypaint_wrapper {
 
 class BrushWrapper {
  public:
@@ -47,7 +46,6 @@ class BrushWrapper {
   SurfaceWrapper* surface_;
 };
 
-}  // namespace libmypaint
-}  // namespace spiral
+}  // namespace libmypaint_wrapper
 
 #endif  // SPIRAL_ENVIRONMENTS_LIBMYPAINT_WRAPPER_BRUSH_H_

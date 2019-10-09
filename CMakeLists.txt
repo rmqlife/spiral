@@ -15,13 +15,8 @@
 cmake_minimum_required(VERSION 3.14)
 project(spiral)
 
-set(CMAKE_POSITION_INDEPENDENT_CODE TRUE)
-
 find_package(Python3 REQUIRED COMPONENTS Interpreter Development NumPy)
 find_package(PythonInterp ${Python3_VERSION} REQUIRED)
-
-find_package(Protobuf REQUIRED)
-include_directories(${Protobuf_INCLUDE_DIRS})
 
 # Build libmypaint.
 include(ExternalProject)
@@ -29,6 +24,7 @@ set(LIBMYPAINT_CFLAGS "")
 ExternalProject_Add(
   libmypaint
   URL https://github.com/mypaint/libmypaint/releases/download/v1.3.0/libmypaint-1.3.0.tar.xz
+  URL_HASH MD5=2e7200c7873514dfca26eea9e3d273f5
   CONFIGURE_COMMAND <SOURCE_DIR>/configure --prefix=<INSTALL_DIR> --disable-static --enable-shared ${LIBMYPAINT_CFLAGS}
   BUILD_COMMAND ${MAKE} ${LIBMYPAINT_CFLAGS}
   BUILD_IN_SOURCE 1
@@ -43,9 +39,6 @@ set(Libmypaint_DEPS ${JSONC_LIBRARY})
 add_subdirectory(${PROJECT_SOURCE_DIR}/third_party/googletest)
 add_subdirectory(${PROJECT_SOURCE_DIR}/third_party/absl)
 add_subdirectory(${PROJECT_SOURCE_DIR}/third_party/glog)
-
-set(BUILD_VULKAN OFF CACHE BOOL "Build the Vulkan library")
-add_subdirectory(${PROJECT_SOURCE_DIR}/third_party/swiftshader)
 
 set(PYBIND11_PYTHON_VERSION ${Python3_VERSION})
 add_subdirectory(${PROJECT_SOURCE_DIR}/third_party/pybind11)

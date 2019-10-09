@@ -22,8 +22,7 @@ namespace py = pybind11;
 #include "spiral/environments/libmypaint_wrapper/brush.h"
 #include "spiral/environments/libmypaint_wrapper/surface.h"
 
-namespace spiral {
-namespace libmypaint {
+namespace libmypaint_wrapper {
 
 PYBIND11_MODULE(pylibmypaint, m) {
   py::class_<BrushWrapper> brush_wrapper(m, "BrushWrapper");
@@ -63,5 +62,4 @@ PYBIND11_MODULE(pylibmypaint, m) {
       .export_values();
 }
 
-}  // namespace libmypaint
-}  // namespace spiral
+}  // namespace libmypaint_wrapper

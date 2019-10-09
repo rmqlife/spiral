@@ -20,8 +20,7 @@
 
 #include "glog/logging.h"
 
-namespace spiral {
-namespace libmypaint {
+namespace libmypaint_wrapper {
 
 BrushWrapper::BrushWrapper() : brush_(mypaint_brush_new()) {}
 
@@ -59,5 +58,4 @@ void BrushWrapper::StrokeTo(float x, float y, float pressure, float dtime) {
       brush_, surface_->GetInterface(), x, y, pressure, xtilt, ytilt, dtime);
 }
 
-}  // namespace libmypaint
-}  // namespace spiral
+}  // namespace libmypaint_wrapper

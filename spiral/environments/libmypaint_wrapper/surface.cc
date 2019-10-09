@@ -21,8 +21,7 @@
 #include "absl/memory/memory.h"
 #include "libmypaint/mypaint-surface.h"
 
-namespace spiral {
-namespace libmypaint {
+namespace libmypaint_wrapper {
 namespace {
 
 extern "C" {
@@ -167,5 +166,4 @@ std::vector<int> SurfaceWrapper::GetBufferDims() const {
           4};
 }
 
-}  // namespace libmypaint
-}  // namespace spiral
+}  // namespace libmypaint_wrapper
