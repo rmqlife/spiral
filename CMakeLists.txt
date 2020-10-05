@@ -15,8 +15,8 @@
 cmake_minimum_required(VERSION 3.14)
 project(spiral)
 
-find_package(Python3 REQUIRED COMPONENTS Interpreter Development NumPy)
-find_package(PythonInterp ${Python3_VERSION} REQUIRED)
+# find_package(Python3 REQUIRED COMPONENTS Interpreter Development NumPy)
+# find_package(PythonInterp ${Python3_VERSION} REQUIRED)
 
 # Build libmypaint.
 include(ExternalProject)
